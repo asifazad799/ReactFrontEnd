@@ -1,13 +1,13 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import Main_banner from '../asset/Online learning-rafiki.svg';
-import Main_banner2 from '../asset/mainPageSvg2.svg';
-import Main_banner3 from '../asset/Group 107.svg';
-import Main_banner4 from '../asset/banner4.svg';
+import Main_banner from '../asset/teacher_mainModal.svg';
+import Main_banner2 from '../asset/teacher_banner1.svg';
+import Main_banner3 from '../asset/teacher_banner2.svg';
+import Main_banner4 from '../asset/teacher_banner3.svg';
 import { useSelector,useDispatch } from 'react-redux';
-import {opneModal} from '../redux-toolkit/opneLoginModal'
-import {openSignUp,closeSignUp} from '../redux-toolkit/openSignUp';
+import { opneTeacherModal,closeTeacherModal } from '../redux-toolkit/opneTeacherLoginModal';
+import { openTeacherSignUp, closeTeacherSignUp } from '../redux-toolkit/openTeacherSignUp';
 
 
 function LandingPageBody() {
@@ -22,24 +22,25 @@ function LandingPageBody() {
   let data = [
     {
       banner:Main_banner2,
-      title:`Live classes`,
-      text:`Chat with educators, ask questions,
-      answer live polls, and get your doubts 
-      cleared - all while the class is going on`
+      title:`Earn bigger`,
+      text:`Each and every minute of yours is valued
+      and counted here. So for every minute 
+      you work here gets paid.`
     },
     {
       banner:Main_banner3,
-      title:`Test your knowledge`,
-      text:`Each and every courses are
-      comes with qizes. You can test 
-      yourself how mush you have learned `
+      title:`Build a brigher career`,
+      text:`In IAcademy your future is 
+      secure. Your each achivements 
+      are  valued here.`
     },
     {
       banner:Main_banner4,
-      title:`Live Classes`,
-      text:`Chat with educators, ask questions,
-      answer live polls, and get your doubts 
-      cleared - all while the class is going on`
+      title:`Flexible work arrangements`,
+      text:`You can design your own time to work.
+      The idea is to help manage work-life  
+      balance and benefits of FWA can include 
+      reduced employee stress and increased`
     }
   ]
 
@@ -56,7 +57,7 @@ function LandingPageBody() {
               </Typography>
               <Typography  sx={{fontWeight:'normal',color:"#5F5F5F",fontSize:"18px",mt:2
               }}>
-                “There is no end to education. It is not that you read a book, pass an examination, and finish with education. The whole of life, from the moment you are born to the moment you die, is a process of learning.” – Jiddu Krishnamurti
+               Tell me and I forget. Teach me and I remember. Involve me and I learn.– Benjamin Franklin
               </Typography>
             
               <button 
@@ -74,10 +75,10 @@ function LandingPageBody() {
                   cursor:'pointer'}}
                   onClick={()=>{
                     // console.log('asif');
-                    dispatch(opneModal());
-                    dispatch(openSignUp())
+                    dispatch(opneTeacherModal());
+                    dispatch(openTeacherSignUp())
                   }}>
-                  Sign Up Now
+                  Start your career
               </button>
            
 
@@ -97,15 +98,15 @@ function LandingPageBody() {
                 alignItems:"center",
                 justifyContent:"center",
                 width:"100%",
-                marginTop:"10px"
+                marginTop:"-40px"
               }}
              >
               <img src={Main_banner} 
                 style={{
-                  height:"476px",
+                  height:"526px",
                   marginTop:"-70px",
                   width:"90%"
-                }} alt="Main_Banner">
+                }}>
                 
               </img>
             </div>
@@ -119,7 +120,7 @@ function LandingPageBody() {
           {
             data.map((val)=>{
               return(
-                <Grid item key={val.title}  xs={12} md={4} 
+                <Grid key={val.title}  item xs={12} md={4} 
                   order={{xs:3,md:3}}
                   sx={{mb:8}}
                 > 
@@ -137,7 +138,7 @@ function LandingPageBody() {
                       height:"506px",
                       marginTop:"-70px",
                       maxWidth:"280px"
-                    }} alt="Banner">
+                    }}>
                     
                   </img>
                   </div>
@@ -174,3 +175,4 @@ function LandingPageBody() {
 }
 
 export default LandingPageBody;
+

@@ -3,6 +3,8 @@ import TopNav from '../components/students/landingPage/TopNav';
 import Footer from '../components/students/footer/Footer';
 import HomePageBody from '../components/students/homepage/HomePageBody'
 import { useNavigate }  from 'react-router-dom';
+import Container from '@mui/material/Container';
+
 // import jwt from 'jsonwebtoken';
 
 
@@ -21,11 +23,17 @@ function HomePage() {
       },[])
    
     return (
-        <div>
-            <TopNav/>
-            <HomePageBody/>
-            <Footer/>
+      <div>
+        <div style={{position:"fixed",  width:"100%",top:0, backgroundColor:"white", left:0}}>
+          <TopNav />
         </div>
+        <div style={{marginTop:"100px"}}>
+          <Container maxWidth="lg">
+              <HomePageBody/>
+              <Footer/>
+          </Container>
+        </div>
+      </div>
     
     )
 }

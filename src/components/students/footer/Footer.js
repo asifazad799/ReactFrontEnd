@@ -3,6 +3,8 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Logo from '../asset/logo.jpg';
 import { NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { setSideNavOpen, setSideNavClose } from '../redux-toolkit/TeacherSideNav'
 
 
 function Footer() {
@@ -177,16 +179,17 @@ function Footer() {
         ]
     }
   ]
-
+  const dispatch = useDispatch()
   return (
-      <Grid item container sx={{pb:6 ,pt:5}}>
+      <Grid item container sx={{pb:4 ,pt:5}} 
+      onClick={()=>{
+        dispatch(setSideNavClose())
+    }}>
           <Grid item xs={6} md={3} 
             sx={{
              p:6
             
-            }}
-            
-            >
+            }}>
               <div
                 style={{
                     display:'flex'
@@ -222,7 +225,7 @@ function Footer() {
                 <Grid item key={val.title} xs={6} md={3} 
                   sx={{
                     backgroundColor:"white",
-                    mb:5,
+                    mb:3,
                     p:6
 
                   }}>
@@ -240,8 +243,6 @@ function Footer() {
                           )
                         })
                       }
-                  
-
                 </Grid>
               )
             })

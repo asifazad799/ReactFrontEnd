@@ -1,15 +1,16 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import Main_banner from '../asset/Online learning-rafiki.svg';
-import Main_banner2 from '../asset/mainPageSvg2.svg';
-import Main_banner3 from '../asset/Group 107.svg';
-import Main_banner4 from '../asset/banner4.svg';
+// import Main_banner from '../asset/Online learning-rafiki.svg';
+// import Main_banner2 from '../asset/mainPageSvg2.svg';
+// import Main_banner3 from '../asset/Group 107.svg';
+// import Main_banner4 from '../asset/banner4.svg';
 import { useSelector,useDispatch } from 'react-redux';
-import {opneModal} from '../redux-toolkit/opneLoginModal'
-import {openSignUp,closeSignUp} from '../redux-toolkit/openSignUp';
+// import {opneModal} from '../redux-toolkit/opneLoginModal'
+// import {openSignUp,closeSignUp} from '../redux-toolkit/openSignUp';
 import homePageBanner from '../asset/home_page.svg';
-import RecentCourses from './recentCourses'
+import RecentCourses from './recentCourses';
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -19,7 +20,7 @@ function HomePageBody() {
         return state.modal;
     });
     const dispatch = useDispatch();
-  
+    const Navigate = useNavigate()
     // console.log(openMod);
   
     let data = [
@@ -57,9 +58,9 @@ function HomePageBody() {
     ]
 
   return (
-    <Grid container>
+    <Grid  container>
     
-    <Grid container item xs={12} md={6} alignItems="center" 
+    <Grid item  xs={12} md={6} alignItems="center" 
       sx={{
         mt:4,
         display:"flex",
@@ -82,7 +83,8 @@ function HomePageBody() {
             paddingTop:"10px",
             paddingBottom:'40px',
             width:"70%"
-          }}>
+          }}
+          alt="homePageBanner">
           
         </img>
       </div>
@@ -112,13 +114,14 @@ function HomePageBody() {
             backgroundColor:"#4744EB",
             borderRadius:"4px",
             color:"white",
-            cursor:'pointer'}}
-            onClick={()=>{
-              // console.log('asif');
-              dispatch(opneModal());
-              dispatch(openSignUp())
+            cursor:'pointer',
+            float:"right"}}
+            onClick={() => {
+
+              Navigate('/subscriptions-plans')
+              
             }}>
-            Sign Up Now
+            subscribe
         </button>
      
 
@@ -134,7 +137,7 @@ function HomePageBody() {
          justifyContent:"center", 
          width:"100%"
     }}>
-    <Grid container 
+    <Grid item container 
         sx={{
             backgroundColor:'#F5F5F5',
             mt:4,
@@ -171,7 +174,7 @@ function HomePageBody() {
                     marginTop:".7em",
                     color:`${val.iconColor}`,
                     paddingRight:"10px",
-                    fontSize:".9em"
+                    fontSize:".9em",
                     
                 }}>
                     {val.icon}
@@ -204,7 +207,8 @@ function HomePageBody() {
     }
    </Grid>
    </div>
-   <RecentCourses/>
+   <RecentCourses title="Recently started courses"/>
+   <RecentCourses title="Best of all time"/>
   </Grid>
   );
 }

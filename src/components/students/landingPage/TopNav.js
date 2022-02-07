@@ -35,26 +35,19 @@ function TopNav() {
         return state.user
     })
     const dispatch = useDispatch();
-    
-    
-    // console.log(userData1.data);
-    // if(userData1.data){
-    //     console.log('data here');
-    // }else{
-    //     console.log('data not here');
-    // }
+    // console.log(open);
     
     return (
         
-
-            <Box  sx={{ display: 'flex',justifyContent: 'space-between',mt: 3 ,height:'70px' }}>
+        <Container maxWidth="lg">
+            <Box  sx={{ display: 'flex',justifyContent: 'space-between', pt: 2.1 ,height:'55px', width:"100%"}}>
                 <div
                     style={{
                         display:'flex',
                         justifyContent: 'space-between'
                     }}
                 >
-                    <div><img src={Logo} style={{width:"37px"}}></img></div>
+                    <div><img src={Logo} style={{width:"37px"}} alt="Logo"></img></div>
                     <Typography variant="subtitle1" sx={{mt:1.3,ml:1}} >
                         IAcademy
                     </Typography>  
@@ -91,7 +84,7 @@ function TopNav() {
                     </Box>
                 </Modal>
             </Box>
-
+        </Container>
     );
 }
 
