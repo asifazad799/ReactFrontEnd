@@ -6,10 +6,13 @@ import validationTeacher from './teacherValidation';
 import opneTeacherModalSlice from './opneTeacherLoginModal';
 import techerSignUpSlice from './openTeacherSignUp';
 import adminValidation from './adminValidation';
-import TeacherSideNav from './TeacherSideNav'
+import TeacherSideNav from './TeacherSideNav';
+import TeacherCourseDetails from './TeacherCourseDetail';
+import TeacherAddNewCourse from './TeacherAddNewCourseModal';
+import TeacherEditCourse from './TeacherEditCourseModal'
 
 const store = configureStore({
-    reducer:{
+    reducer: {
         modal: opneModalSlice,
         signUp: opneSignUpSlice,
         user: validation,
@@ -17,8 +20,10 @@ const store = configureStore({
         TeacherModal: opneTeacherModalSlice,
         TeacherSignUpModalStatus: techerSignUpSlice,
         admin: adminValidation,
-        tacherSideNav:TeacherSideNav
-    }
+        tacherSideNav: TeacherSideNav,
+        teacherCourseId: TeacherCourseDetails,
+        addNewCourseModal: TeacherAddNewCourse,
+        editCourseModal: TeacherEditCourse      
+    } 
 });
-
 export default store; 

@@ -4,7 +4,10 @@ import Logo from '../asset/logo.jpg';
 import { useNavigate }  from 'react-router-dom';
 import User from '../asset/userIcon.svg';
 import { useSelector, useDispatch } from 'react-redux';
-
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 function TeacherSideNavBar() {
   const teacher = useSelector(state => state.teacher)
@@ -13,76 +16,82 @@ function TeacherSideNavBar() {
   let data = [
     {
       button:"Dashboard",
-      link:"/teacher/dashboard"
+      link:"/teacher/dashboard",
+      icon:<DashboardIcon sx={{color:"#A600F4"}}/>
     },
     {
       button:"Courses",
-      link:"/teacher/courses"
+      link:"/teacher/courses",
+      icon:<MenuBookIcon sx={{color:"#EBB376"}}/>
     },
     {
       button:"Payments",
+      icon:<AccountBalanceWalletIcon sx={{color:"#57C28A"}}/>
     }
   ]
   return (
-        <div style={{padding:"20px"}}>
-          <div style={{display:"flex", justifyContent:"center", marginTop:"10px"}}>
-            <div style={{backgroundColor:"white", width:"100px", height:"100px", borderRadius:"50%",
-              display:"flex", justifyContent:'center', alignItems:"center"
-              }}>
-              <img src={User} style={{height:"80px", width:"80px"}} alt="User"/>
-            </div>
+      <div style={{padding:"20px"}}>
+        <div style={{display:"flex", justifyContent:"center", marginTop:"10px"}}>
+          <div style={{backgroundColor:"white", width:"100px", height:"100px", borderRadius:"50%",
+            display:"flex", justifyContent:'center', alignItems:"center"
+            }}>
+            <img src={User} style={{height:"80px", width:"80px"}} alt="User"/>
           </div>
-          <Typography variant="subtitle1" sx={{ ml:1, fontWeight:500, fontSize:"15px", color:"#5F5F5F", textAlign:"center", mt:3}} >
-            {
-              teacher?.data?.user.name
-            }
-          </Typography>
-          
-          <div style={{}}>
-            {
-              data.map((val)=>{
-                return(
+        </div>
+        <Typography variant="subtitle1" sx={{ ml:1, fontWeight:500, fontSize:"15px", color:"#5F5F5F", textAlign:"center", mt:3}} >
+          {
+            teacher?.data?.user.name
+          }
+        </Typography>
+        
+        <div style={{}}>
+          {
+            data.map((val)=>{
+              return(
+                <div key={val.button} style={{display:'flex',backgroundColor:"white", 
+                borderRadius:"4px", 
+                cursor:"pointer",
+                marginTop:"20px"}}>
+                  <div style={{marginTop:'12.4px', paddingLeft:"12px", paddingRight:"6px"}}>
+                    {val.icon}
+                  </div>
                   <Typography key={val.button} variant="subtitle1" sx={{
                     fontWeight:500, fontSize:"18px",
                     color:"#5F5F5F",
-                    textAlign:"center",
+                    textAlign:"left",
                     p:1, 
-                    backgroundColor:"white", 
-                    borderRadius:"4px", 
-                    // border:"1.6px solid #C7C7C7",
-                    boxShadow: "0px 1px 4px .6px #888888",
-                    cursor:"pointer",
-                    marginTop:"20px"
-                   }}
-                   onClick={()=>{
+                    
+                  }}
+                  onClick={()=>{
                     Navigate(val.link)
-                   }}>
+                  }}>
                     {val.button}
                   </Typography>
-                )
-              })
-            }
-            
-            <div style={{display:"flex", justifyContent:'center', marginTop:"20px"}}>
+                </div>
+              )
+            })
+          }
+          <div style={{width:"100%", display:"flex", justifyContent:'center'}}>
+          <div style={{display:"flex", justifyContent:'center', marginTop:"20px",  backgroundColor:"white", 
+                borderRadius:"4px", 
+                cursor:"pointer",
+                width:"104px",
+                height:"46px"}}>
+              <div style={{marginTop:'11px', paddingLeft:"0px", paddingRight:"6px"}}>
+                  <LogoutIcon sx={{color:'red'}}/>
+              </div>
               <Typography variant="subtitle1" sx={{
                   fontWeight:400, fontSize:"16px",
                   color:"#5F5F5F",
-                  textAlign:"center",
-                  py:1, 
-                  backgroundColor:"white", 
-                  borderRadius:"4px", 
-                  // border:"1.6px solid #C7C7C7",
-                  boxShadow: "0px 1px 4px .1px #888888",
-                  // backgroundImage:"linear-gradient(to right, #c25757, #ce5a61, #da5e6b, #e66176, #f26582)",
-                  cursor:"pointer",
-                  width:"94px",
-                  height:"27px"
+                  textAlign:"left",
+                  py:1.1
                 }}>
                   Logout
               </Typography>
-            </div>
+          </div>
           </div>
         </div>
+      </div>
   )
 }
 

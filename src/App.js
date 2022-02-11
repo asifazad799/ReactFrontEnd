@@ -15,7 +15,7 @@ import TeacherAppStatusPage from './pages/TeacherAppStatusPage';
 import SubscrptionPage from './pages/SubscibePlanPage';
 import TeacherDashBoard from './pages/TeacehrDashboard';
 import TeacherCourse from './pages/TeacherCoursesPage';
-import CourseDetailsPage from './pages/TeacherCouresDtailsPage'
+import CourseDetailsPage from './pages/TeacherCouresDetailsPage'
 
 function App() {
 
@@ -46,7 +46,7 @@ function App() {
         <Route path="/teacher/application-status" element={<TeacherAppStatusPage/>}/>
         <Route path="/teacher/dashboard" element={<TeacherDashBoard/>}/>
         <Route path="/teacher/courses" element={<TeacherCourse/>}/>
-        <Route path="/teacher/course-details" element={<CourseDetailsPage/>}/>
+        <Route path="/teacher/course-details/:courseId" element={<CourseDetailsPage/>}/>
         <Route path="/admin" element={<AdminLogin/>}/>
         <Route path="/admin/dashboard" element={<AdminDashboard/>}/>
         <Route path="/admin/teachers-application" element={<AdminTeachersApplicationsPage/>}/>

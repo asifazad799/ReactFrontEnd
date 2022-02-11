@@ -22,7 +22,7 @@ function LandingPage() {
 
   return (
     <div>
-      <div style={{position:"fixed",  width:"100%",top:0, backgroundColor:"white", left:0}}>
+      <div style={{position:"fixed",  width:"100%",top:0,  left:0,backgroundColor:'white'}}>
           <TopNav />
       </div>
       <div style={{marginTop:"100px"}}>

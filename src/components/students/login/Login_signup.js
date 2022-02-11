@@ -21,6 +21,7 @@ import { useNavigate } from 'react-router-dom'
 import { setUser } from '../redux-toolkit/userValidation'
 import { closeModal } from '../redux-toolkit/opneLoginModal'
 
+// console.log(setUser);
 // const theme = createTheme();
 
 export default function SignIn() {
@@ -40,7 +41,6 @@ export default function SignIn() {
   const [info, setInfo] = useState(false)
 
   const signUpApi = async (suData) => {
-    // console.log(data);
     setError(false)
     try {
       const config = {
@@ -51,18 +51,15 @@ export default function SignIn() {
       setLoading(true)
       const { data } = await axios.post('/user/signup', suData, config)
       setLoading(false)
-      // console.log(data);
       setInfo(true)
       dispatch(closeSignUp())
     } catch (error) {
       setError(error.response.data.message)
-      // console.log(error.response.data.message);
       setLoading(false)
     }
   }
 
   const logInApi = async (loData) => {
-    // console.log('hai login');
     setError(false)
     try {
       const config = {

@@ -16,7 +16,7 @@ function TeacherMainPageBody(props) {
 
 
     if(sidenav!==false){
-        sedeNavWidth = "240px"
+        sedeNavWidth = "220px"
         shadow = "50px 0px 10px 567px rgba(120, 120, 120, 0.48)"
     }
     // console.log(onClickOutside);
@@ -42,12 +42,13 @@ function TeacherMainPageBody(props) {
                 dispatch(setSideNavClose())
             }} >
                 <Grid item md={2.4} sx={{ display : { sm:"none", xs:"none", md:"block"}}}> 
-                    <div style={{backgroundColor:"#F5F5F5", width:"100%", minHeight:"70vh", borderRadius:"4px"}}>
+                    <div style={{backgroundColor:"#F5F5F5", width:"100%", minHeight:"100%", borderRadius:"4px"}}>
                         <SideNav/>
                     </div>
                 </Grid>
                 <Grid item md={9.6} sm={12} xs={12}>
-                    <div style={{backgroundColor:"#F5F5F5", width:"100%", minHeight:"30vh", right:0, borderRadius:"4px"}}>
+                    <div style={{backgroundColor:"#F5F5F5", width:"100%", minHeight:"30vh", maxHeight:"90vh",right:0, borderRadius:"4px",  overflowX:"hidden",
+                        overflowY:"auto"}}>
                         {
                             props.children
                         }
